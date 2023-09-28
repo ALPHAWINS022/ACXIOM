@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+
+    <div class="login-box">
+        <form method="post" id="myForm">
+            <div class="user-box">
+                <input type="text" placeholder="" id="usernameInput"><br>
+                <label>Username / Email :</label>
+            </div>
+            
+            <div class="user-box">
+                <input type="password" placeholder="" id="passwordInput" required><br><br>
+                <label>Password:</label>
+            </div>
+            
+            <button class="custom-btn btn-2" type="submit">Signup</button>
+         
+        <br> <br>
+        
+        <a href="login.html"></a>
+        <button class="custom-btn btn-2"><a href="login.html" style="text-decoration: none; color: white;">After Signup Go to Login</a></button>
+    </form> </div>
+    
+
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+    
+            var username = document.getElementById("usernameInput").value;
+            var password = document.getElementById("passwordInput").value;
+    
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+    
+            alert("Form values stored in localStorage!");
+    
+            document.getElementById("myForm").reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>
+        Reminder Application
+    </h1>
+    <div class="login-box">
+        <h1 style="color: azure;">Login-Form</h1>
+        <form method="post" id="myForm">
+            <div class="user-box">
+                <input type="text"  id="usernameInput" required> <br>
+                <label>Username:</label>
+            </div>
+            <div class="user-box">
+                <input type="password"  id="passwordInput" required><br />
+                <label>Password:</label>
+            </div>
+            <div class="row">
+                <button class=" custom-btn btn-2 "href="#" type="submit">
+                    Login
+                </button>
+                <button class=" custom-btn btn-2"><a href="signup.html" style="text-decoration: none; color: rgb(255, 255, 255);" >Create new user</a></button>
+            </div>
+            <button class="custom-btn btn-2"><a href="loggedOut.html" style="text-decoration: none; color: rgb(255, 255, 255);">Cancel</a></button>
+        </form>
+        
+</div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+    
+            var username = document.getElementById("usernameInput").value;
+            var password = document.getElementById("passwordInput").value;
+    
+            var storedUsername = localStorage.getItem("username");
+            var storedPassword = localStorage.getItem("password");
+
+            if (username === storedUsername && password === storedPassword) {
+                window.location.href = "index.html";
+            } else {
+                window.location.href = 'loginFailed.html';
+            }
+        });
+    </script>
+</body>
+</html>
